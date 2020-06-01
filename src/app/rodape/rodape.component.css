@@ -1,0 +1,14 @@
+.lostfooter {
+    background: #3C948B;
+    vertical-align: middle;
+    
+    position:static;
+    bottom:0; 
+    width:100%;
+    height: 2rem;
+    margin-top: 10px;
+}
+.lostfootdiv{
+        text-align: right;
+        width: 100%;
+}

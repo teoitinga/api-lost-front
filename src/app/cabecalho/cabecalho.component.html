@@ -1,0 +1,22 @@
+<mat-toolbar color="primary">
+    <span>
+        <H1>Lost-Versão 01.2020</H1>
+    </span>
+    <span class="toolbar-spacer"></span>
+    <a (click)="sair()" style="cursor: pointer" alt="Sair" title="sair" *ngIf="autenticado()">
+        <mat-icon class="toolbar-icon" matTooltip="Sair">exit_to_app</mat-icon>
+    </a>
+    <a (click)="login()" style="cursor: pointer" alt="Fazer login" title="login" *ngIf="!autenticado()">
+        <mat-icon class="toolbar-icon" matTooltip="Fazer login">account_circle</mat-icon>
+    </a>
+</mat-toolbar>
+
+<mat-toolbar class="mat-elevation-z8" *ngIf="autenticado()">
+    <button mat-button (click)='irParaHome()'>Home</button>
+    <button mat-button [matMenuTriggerFor]="afterMenu">Cliente</button>
+    <mat-menu #afterMenu="matMenu" xPosition="after">
+      <button mat-menu-item (click)='irParaCadastrar()'>Cadastrar</button>
+      <button mat-menu-item (click)='irParaListarClientes()'>Listar todos</button>
+    </mat-menu>
+
+</mat-toolbar>
