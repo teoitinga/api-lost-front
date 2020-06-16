@@ -24,7 +24,14 @@ export class LoginComponent implements OnInit {
     private router: Router,
     private loginService: LoginService,
     private accountService: AccountService
-  ) { }
+  ) {
+    this.accountService.headerData = {
+      title:'Login',
+      icon: 'security',
+      routeUrl: '/login',
+      user: this.accountService.getActiveUserName()
+  } 
+   }
 
   ngOnInit(): void {
     this.gerarForm();
@@ -38,6 +45,7 @@ export class LoginComponent implements OnInit {
     );
   }
   logar(){
+    console.log("logar-> Tentando realizar login");
     if(this.form.invalid){
       this.snackBar.open(
         "Dados invalidos", "Erro", {duration:5000}
@@ -45,17 +53,15 @@ export class LoginComponent implements OnInit {
       return;
     }
     const login: LoginPost = this.form.value;
-    this.loginService.logar(login).subscribe(
+    this.accountService.logar(login).subscribe(
       data => {
         this.accountService.login(data[this.accountService.tokenIdentificator]);
       },
       err=>{
-
-        let msg: string = "Tente novamente mais tarde";
-        if(err['status'] == 401){
-          msg = err['error']['errors'];
-        }
-        this.snackBar.open(msg, "Erro", {duration: 5000});
+        console.error("Erro encontrado -> " + JSON.stringify(err.message));
+        let msg: string = "Ocorreu un erro: ";
+        msg = msg + JSON.stringify(err.message);
+        this.accountService.showMessage(msg, "Erro de login", true, this.snackBar);
       }
     );
 

@@ -17,7 +17,7 @@ export class CabecalhoComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
-    this.usuario = this.getUserName();
+
   }
   sair(){
     if(this.accountService.isLoggedIn()){
@@ -29,6 +29,7 @@ export class CabecalhoComponent implements OnInit {
     this.router.navigate(['/login']);
   }
   autenticado(){
+    
     return this.accountService.isLoggedIn();
   }
   irParaHome(){
@@ -40,7 +41,17 @@ export class CabecalhoComponent implements OnInit {
   irParaListarClientes(){
     this.router.navigate(['/clientes'])
   }
-  getUserName():string{
-    return this.accountService.getActiveUserName();
+
+  get title():string{
+    return this.accountService.headerData.title;
+  }
+  get icon():string{
+    return this.accountService.headerData.icon;
+  }
+  get routeUrl():string{
+    return this.accountService.headerData.routeUrl;
+  }
+  get user():string{
+    return this.accountService.headerData.user;
   }
 }

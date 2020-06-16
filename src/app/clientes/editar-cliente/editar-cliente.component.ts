@@ -25,11 +25,15 @@ export class EditarClienteComponent implements OnInit {
     private snackBar: MatSnackBar,
     private router: Router,
     private serviceCliente: ClienteService,
-    private header: HeaderUtilService,
     private accountService: AccountService,
     private route: ActivatedRoute
   ) {
-    
+    this.accountService.headerData = {
+      title:'Editar dados do Cliente',
+      icon: 'contact_mail',
+      routeUrl: 'editar/:id',
+      user: this.accountService.getActiveUserName()
+  }   
    }
 
   ngOnInit(): void {
@@ -93,16 +97,14 @@ export class EditarClienteComponent implements OnInit {
         console.log(JSON.stringify(data));
         this.router.navigate(['/clientes'])
         const msg: string = "Cliente atualizado com sucesso.";
-        this.snackBar.open(msg, "Sucesso", {duration:5000});
+        this.accountService.showMessage(msg, "Sucesso", false, this.snackBar);
       },
       err=>{
-        console.error(JSON.stringify(err));
-        let msg: string = "Tente novamente mais tarde.";
-        if(err.status == 400){
-          msg = err.error.errors.join(' ');
+        console.error("Erro encontrado -> " + JSON.stringify(err.message));
+        let msg: string = "Ocorreu un erro: ";
+        msg = msg + JSON.stringify(err.message);
+        this.accountService.showMessage(msg, "Erro", true, this.snackBar);
 
-        }
-        this.snackBar.open(msg, "Erro!", {duration:5000});
       }
     );
     return false;

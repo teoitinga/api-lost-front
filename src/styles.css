@@ -2,3 +2,14 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.msg-error{
+    background-color: #e35e6b;
+    color: white;
+}
+.msg-success{
+    background-color: #28a745;
+    color: white;
+}
+.mat-icon-button{
+    color: #28a745;
+}

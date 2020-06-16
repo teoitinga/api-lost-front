@@ -1,13 +1,12 @@
 
-<form [formGroup]="form" fxLayoutAlign="center" novalidate>
+<form [formGroup]="form" fxLayoutGap="20px" fxLayout="column" fxLayoutAlign="space-around center" novalidate>
     <mat-list>
-        <mat-list-item>
-            
+        <mat-list-item fxLayoutAlign="left">
             <mat-form-field>
                 <input matInput placeholder="login" formControlName="login">
             </mat-form-field>
         </mat-list-item>
-        <mat-list-item>
+        <mat-list-item fxLayoutAlign="left">
             <mat-form-field>
                 <input type="password" matInput placeholder="senha" formControlName="senha">
             </mat-form-field>
@@ -16,7 +15,7 @@
             </span>
         </mat-list-item>
         <mat-list-item fxLayoutAlign="center">
-            <button mat-raised-button color="primary" 
+            <button mat-raised-button
                 [disabled]="form.invalid" (click)="logar()">
                 login
             </button>

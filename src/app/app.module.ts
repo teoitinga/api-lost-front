@@ -1,3 +1,5 @@
+import { ClienteService } from 'src/app/clientes';
+import { CompraModule } from './compras/compra.module';
 import { CompraRoutingModule } from './compras/compra-routing.module';
 import { AccountService } from './shared/service/account.service';
 import { httpInterceptorService, Interceptor } from './shared/service/http-interceptor';
@@ -40,12 +42,14 @@ import { CompraComponent } from './compras/components/compra/compra.component';
     ClientesModule,
     ClienteRoutingModule,
     CompraRoutingModule,
+    CompraModule,
     
     AppRoutingModule
   ],
   providers: [
     Interceptor,
-    AccountService
+    AccountService,
+    ClienteService
   ],
   bootstrap: [AppComponent]
 })

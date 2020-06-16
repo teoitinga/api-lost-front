@@ -15,7 +15,5 @@ export class LoginService {
     private http: HttpClient
     
     ) { }
-    logar(login: LoginPost): Observable<any>{
-      return this.http.post(env.baseApiUrl + this.PATH, login);
-    }
+
 }

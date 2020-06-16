@@ -1,2 +1,104 @@
-<p>comprar works!</p>
-Cliente: {{idCliente}}
+            <h3>
+                Registrar compra do cliente: {{cliente?.nome}}
+            </h3>
+            <button class="button-registrar-compra" mat-raised-button [disabled]="formCompra.invalid" (click)="comprar()">
+                Registrar
+            </button>
+            <button class="button-cancelar-compra" mat-raised-button (click)="cancelar($event)">
+                Cancelar
+            </button>
+            <form [formGroup]="formCompra" novalidate>
+                <mat-list >
+                    <mat-list-item>
+                        <mat-form-field>
+                            <input rows="5" cols="40" matInput placeholder="Entregue a"
+                                formControlName="recebebida">
+                        </mat-form-field>
+                        <span matTooltip='O nome da pessoa que recebe a mercadoria deve conter pelo menos 10 caracteres.'>
+                            <mat-icon>help</mat-icon>
+                        </span>
+                        <mat-form-field>
+                                <input formControlName="dataCompra"
+                                placeholder="Data da compra" 
+                                 matInput [matDatepicker]="picker">
+                                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                <mat-datepicker #picker></mat-datepicker>
+                        </mat-form-field>
+                    </mat-list-item>
+                </mat-list>
+            </form>
+                        <!--Formulario de itens de compra-->
+                        <form [formGroup]="formItem" novalidate >
+                            <mat-list>
+                                <mat-list-item>
+                                    <mat-form-field >
+                                        <input matInput placeholder="Descrição" formControlName="description">
+                                    </mat-form-field>
+                                </mat-list-item>
+                                <mat-list-item>
+                                    <mat-form-field >
+                                        <input matInput placeholder="Valor unitário" formControlName="unitvalue">
+                                    </mat-form-field>
+                                </mat-list-item>
+                                <mat-list-item>
+                                    <mat-form-field >
+                                        <input matInput placeholder="Quantidade" formControlName="qtd">
+                                    </mat-form-field>
+                                </mat-list-item>
+                                <mat-list-item>
+                                    <mat-form-field >
+                                        <input matInput placeholder="Desconto" formControlName="desconto">
+                                    </mat-form-field>
+                                </mat-list-item>
+            
+                                <mat-list-item >
+                                    <button mat-raised-button [disabled]="formItem.invalid" (click)="novoItem()">
+                                        inserir item
+                                    </button>
+                                    <button mat-raised-button (click)="cancelar($event)">
+                                        Cancelar
+                                    </button>
+                                </mat-list-item>
+                            </mat-list>
+                        </form>
+         <!--Tabela de itens a comprar-->
+         <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+            <!-- Descrição Column -->
+            <ng-container matColumnDef="dsc" >
+                <th mat-header-cell *matHeaderCellDef> Descrição </th>
+                <td class="mat-column-descricao" mat-cell *matCellDef="let item"> {{item.description}} </td>
+            </ng-container>
+            <!-- Valor unitário Column -->
+            <ng-container matColumnDef="vlunt" >
+                <th mat-header-cell *matHeaderCellDef> Valor unitário </th>
+                <td class="mat-column-vlunt" mat-cell *matCellDef="let item"> {{item.unitvalue}} </td>
+            </ng-container>
+            <!-- Quantidade Column -->
+            <ng-container matColumnDef="qtd" >
+                <th mat-header-cell *matHeaderCellDef> Valor unitário </th>
+                <td class="mat-column-qtd" mat-cell *matCellDef="let item"> {{item.qtd}} </td>
+            </ng-container>
+            <!-- Desconto Column -->
+            <ng-container matColumnDef="desconto">
+                <th mat-header-cell *matHeaderCellDef> Desconto </th>
+                <td class="mat-column-desconto" mat-cell *matCellDef="let item"> {{item.desconto}} </td>
+            </ng-container>
+            <!-- Valor Total Column -->
+            <ng-container matColumnDef="total" >
+                <th mat-header-cell *matHeaderCellDef> Valor total </th>
+                <td class="mat-column-total"  mat-cell *matCellDef="let item"> 0 </td>
+            </ng-container>
+            <!-- Opções column -->
+            <ng-container matColumnDef="options" >
+                <th mat-header-cell *matHeaderCellDef>  </th>
+                <td class="mat-column-options" mat-cell *matCellDef="let item" >
+                    <button mat-icon-button matTooltip="Remover este item da compra."
+                         (click)="removerItem($event, item)" aria-label="Remover item">
+                        <mat-icon color="warn">cancel</mat-icon>
+                    </button>
+                </td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+

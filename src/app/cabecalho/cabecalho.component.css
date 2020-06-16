@@ -4,3 +4,15 @@
 .toolbar-spacer{
     flex: 1 1 auto;
 }
+.logo-cabecalho{
+
+}
+.barra-de-tarefas{
+    color: honeydew;
+    padding: 0 0px;
+    background-size: 100%;
+    background-image: linear-gradient(to right, rgba(33, 33 , 33, 0), rgb(0, 36, 31));
+}
+.section{
+    font-size: smaller;
+}

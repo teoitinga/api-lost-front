@@ -1,3 +1,4 @@
+import { ClienteRoutingModule } from './cliente-routing.module';
 import { AccountService } from './../shared/service/account.service';
 import { HeaderUtilService } from './../shared/service/header-util.service';
 import { CadastrarClienteComponent } from './cadastrar/cadastrar-cliente.component';
@@ -30,6 +31,7 @@ import { EditarClienteComponent } from './editar-cliente/editar-cliente.componen
     ReactiveFormsModule,
     FlexLayoutModule,
     HttpClientModule,
+    ClienteRoutingModule,
     Interceptor
   ],
   providers:[

@@ -9,6 +9,7 @@ export const routes:Routes = [
         component: LogarComponent,
         children: [{
             path: '',
+            pathMatch: 'full',
             component: LoginComponent
         }]
     }
