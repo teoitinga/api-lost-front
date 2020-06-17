@@ -23,9 +23,19 @@
 
 <mat-toolbar class="mat-elevation-z8" *ngIf="autenticado()">
     <button mat-button (click)='irParaHome()'>Home</button>
-    <button mat-button [matMenuTriggerFor]="afterMenu">Cliente</button>
-    <mat-menu #afterMenu="matMenu" xPosition="after">
+    <button mat-button [matMenuTriggerFor]="clienteMenu">Cliente</button>
+    <mat-menu #clienteMenu="matMenu" xPosition="after">
       <button mat-menu-item (click)='irParaCadastrar()'>Cadastrar</button>
       <button mat-menu-item (click)='irParaListarClientes()'>Listar todos</button>
+    </mat-menu>
+    <button mat-button [matMenuTriggerFor]="userMenu">Usuário</button>
+    <mat-menu #userMenu="matMenu" xPosition="after">
+      <button mat-menu-item (click)='irParaUsuarios()'>Painel de vendas</button>
+      <button mat-menu-item (click)='irParaUsuarios()'>Dashboard</button>
+    </mat-menu>
+    <button mat-button [matMenuTriggerFor]="aboutMenu">Sobre</button>
+    <mat-menu #aboutMenu="matMenu" xPosition="after">
+      <button mat-menu-item (click)='irParaCadastrar()'>Perfil</button>
+      <button mat-menu-item (click)='irParaListarClientes()'>Info</button>
     </mat-menu>
 </mat-toolbar>

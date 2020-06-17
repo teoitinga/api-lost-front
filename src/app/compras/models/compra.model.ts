@@ -1,7 +1,7 @@
 import { ItemModel } from './item.model';
 export interface CompraModel {
     cliente: string;
-    dataCompra: Date;
+    dataCompra: string;
     id: number;
     itens: ItemModel[];
     recebebida: string;

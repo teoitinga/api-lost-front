@@ -86,7 +86,7 @@ export class AccountService {
   }
   public login(token: string){
     localStorage[this.tokenIdentificator] = token;
-    this.router.navigate(['/clientes']);
+    this.router.navigate(['/usuarios']);
   }
 
   public getActiveUserName():string{
@@ -111,25 +111,44 @@ export class AccountService {
     
   }
   public getrRoleUser():string{
-    if(typeof localStorage[this.tokenIdentificator] !== 'undefined'){
-      return null;
-    }
-    const decoded: any = jwt_decode(localStorage[this.tokenIdentificator]);
+    try {
+      const token = this.getAuthorizationToken();
 
-    if(decoded.role === undefined){
-      return null;
-    }
-    return decoded.role;
+        if(typeof token === "undefined"){
+        return '';
+      }
+      
+      const decoded: any = jwt_decode(localStorage[this.tokenIdentificator]);
+  
+      if(decoded.role === undefined){
+        return '';
+      }
+      return decoded.role;
+    } catch(error) {
+      // invalid token format
+      return '';
+    }  
+
   }
   public getActiveUserId():string{
-    if(typeof localStorage[this.tokenIdentificator] !== 'undefined'){
-      return null;
-    }
-    const decoded: any = jwt_decode(localStorage[this.tokenIdentificator]);
-    if(decoded.sub === undefined){
-      return null;
-    }
-    return decoded.sub;
+    try {
+      const token = this.getAuthorizationToken();
+
+        if(typeof token === "undefined"){
+        return '';
+      }
+      
+      const decoded: any = jwt_decode(localStorage[this.tokenIdentificator]);
+  
+      if(decoded.sub === undefined){
+        return '';
+      }
+      return decoded.sub;
+    } catch(error) {
+      // invalid token format
+      return '';
+    }  
+
   }
 
   public logout(){

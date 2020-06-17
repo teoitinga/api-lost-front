@@ -1,5 +1,5 @@
 .lostfooter {
-    background: #3C948B;
+    background: var(--main-bg-color-primary);
     vertical-align: middle;
     
     position:static;

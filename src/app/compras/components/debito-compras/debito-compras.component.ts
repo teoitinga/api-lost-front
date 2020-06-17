@@ -36,7 +36,14 @@ export class DebitoComprasComponent implements OnInit {
     private snackBar: MatSnackBar,
     private router: Router,
     private route: ActivatedRoute
-  ) { }
+  ) {
+    this.accountService.headerData = {
+      title:'Lista de compras em débito do cliente',
+      icon: 'recent_actors',
+      routeUrl: '/',
+      user: this.accountService.getActiveUserName()
+  }
+   }
 
   ngOnInit(): void {
     this.show();
@@ -53,7 +60,7 @@ export class DebitoComprasComponent implements OnInit {
       this.compras = data;
       this.dataSource = new MatTableDataSource<CompraListModel>(this.compras);
       this.hide();
-    },
+    }, 
     err=>{
       let msg: string = "Não há compras em débito registradas!";
       msg = msg + JSON.stringify(err.message);

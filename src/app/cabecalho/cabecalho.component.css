@@ -7,11 +7,14 @@
 .logo-cabecalho{
 
 }
+.mat-toolbar{
+    background-image: repeating-linear-gradient(var(--main-bg-color-primary), white, var(--main-bg-color-secondary), var(--main-bg-color-primary) );
+}
 .barra-de-tarefas{
-    color: honeydew;
     padding: 0 0px;
     background-size: 100%;
-    background-image: linear-gradient(to right, rgba(33, 33 , 33, 0), rgb(0, 36, 31));
+    color: var(--main-bg-color-secondary);
+    background-image: linear-gradient(to right, var(--main-bg-color-secondary), var(--main-bg-color-primary));
 }
 .section{
     font-size: smaller;

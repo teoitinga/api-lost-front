@@ -35,7 +35,14 @@ export class QuitadasComprasComponent implements OnInit {
     private snackBar: MatSnackBar,
     private router: Router,
     private route: ActivatedRoute
-  ) { }
+  ) { 
+    this.accountService.headerData = {
+      title:'Lista de compras já quitadas do cliente',
+      icon: 'recent_actors',
+      routeUrl: '/',
+      user: this.accountService.getActiveUserName()
+  }
+  }
 
   ngOnInit(): void {
     this.show();
@@ -52,7 +59,7 @@ export class QuitadasComprasComponent implements OnInit {
       this.compras = data;
       this.dataSource = new MatTableDataSource<CompraListModel>(this.compras);
       this.hide();
-    },
+    }, 
     err=>{
       let msg: string = "Não há compras quitadas registradas!";
       msg = msg + JSON.stringify(err.message);

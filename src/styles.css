@@ -11,5 +11,99 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     color: white;
 }
 .mat-icon-button{
-    color: #28a745;
+    color: var(--main-bg-color-primary);
+}
+.mat-raised-button{
+    
+    color: var(--main-bg-color-secondary);
+    background-color: var(--main-bg-color-primary);
+    
+}
+:root {
+    --main-bg-color-primary: #00082b;
+    --main-bg-color-secondary: #b4fce6;
+  }
+.button-lost-ok{
+    background-image: repeating-linear-gradient(blue,var(--main-bg-color-primary) );
+}
+.button-lost-ok:disabled{
+    color: #b4fce6;
+    background: red;
+}
+.mat-raised-button:disabled {
+    color: #fcb4c3;
+
+  }
+.button-lost-cancel{
+
+    background-image: repeating-linear-gradient(rgb(255, 174, 0),var(--main-bg-color-primary) );
+
+}
+.mat-row:hover {
+    background-color: rgb(140, 178, 250);
+    }
+button[disabled]:active, button[disabled]{
+    cursor: not-allowed;
+    opacity: 0.2;
+}
+.button-success,
+.button-error,
+.button-warning,
+.button-secondary {
+    color: white;
+    border-radius: 4px;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+    width: 10rem;
+    height: 3rem;
+}
+
+.button-success {
+    background: rgb(28, 184, 65);
+    /* this is a green */
+    background-image: repeating-linear-gradient(blue,var(--main-bg-color-primary) );
+}
+
+.button-error {
+    background: rgb(202, 60, 60);
+    /* this is a maroon */
+}
+
+.button-warning {
+    background: rgb(223, 117, 20);
+    /* this is an orange */
+    background-image: repeating-linear-gradient(rgb(255, 174, 0),var(--main-bg-color-primary) );
+}
+
+.button-secondary {
+    background: rgb(66, 184, 221);
+    /* this is a light blue */
+}
+.mat-spinner{
+    width:100%;
+    height:100%;
+    position:absolute;
+    top:50%;
+    left:50%;
+    margin-top:-50px;
+    margin-left:-50px;
+  }
+  .mat-header-cell{
+    text-align: center;
+    font-size: 1rem;
+    }
+  .mat-icon-button{
+    color: #0805a7;
+  opacity: 0.3;
+}
+.mat-icon-button:hover{
+  opacity: 1;
+}
+table {
+    width: 80%;
+    margin: 15px 10% 15px 10%;
+  }
+.table-clientes{
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }

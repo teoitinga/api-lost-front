@@ -9,10 +9,17 @@ import { CompraService } from './services/compra.service';
 import { TodasComprasComponent } from './components/todas-compras/todas-compras.component';
 import { QuitadasComprasComponent } from './components/quitadas-compras/quitadas-compras.component';
 import { DebitoComprasComponent } from './components/debito-compras/debito-compras.component';
+import { LostDatePipe } from '../shared/pipe/lost-date';
 
 
 @NgModule({
-  declarations: [ComprarComponent, TodasComprasComponent, QuitadasComprasComponent, DebitoComprasComponent],
+  declarations: [
+    ComprarComponent,
+    TodasComprasComponent,
+    QuitadasComprasComponent,
+    DebitoComprasComponent,
+    LostDatePipe
+  ],
   imports: [
     CommonModule,
     MaterialModule,
@@ -21,7 +28,7 @@ import { DebitoComprasComponent } from './components/debito-compras/debito-compr
 
     CompraRoutingModule
   ],
-  providers:[
+  providers: [
     CompraService
   ]
 })

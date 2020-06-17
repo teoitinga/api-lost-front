@@ -1,3 +1,4 @@
+import { UsuarioRoutingModule } from './usuario/usuario-routing.module';
 import { ClienteService } from 'src/app/clientes';
 import { CompraModule } from './compras/compra.module';
 import { CompraRoutingModule } from './compras/compra-routing.module';
@@ -20,6 +21,9 @@ import { ForbiddenComponent } from './forbidden/forbidden.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { InternalServerErrorComponent } from './internal-server-error/internal-server-error.component';
 import { CompraComponent } from './compras/components/compra/compra.component';
+import { UsuarioModule } from './usuario/usuario.module';
+import { TreeViewModule } from '@progress/kendo-angular-treeview';
+
 
 @NgModule({
   declarations: [
@@ -43,8 +47,12 @@ import { CompraComponent } from './compras/components/compra/compra.component';
     ClienteRoutingModule,
     CompraRoutingModule,
     CompraModule,
+    UsuarioRoutingModule,
+    UsuarioModule,
     
-    AppRoutingModule
+    AppRoutingModule,
+    
+    TreeViewModule
   ],
   providers: [
     Interceptor,

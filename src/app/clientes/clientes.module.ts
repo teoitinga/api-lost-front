@@ -23,7 +23,7 @@ import { EditarClienteComponent } from './editar-cliente/editar-cliente.componen
     CadastrarClienteComponent,
     ListarClienteComponent,
     EditarClienteComponent
-  ],
+  ], 
   imports: [
     CommonModule,
     RouterModule,

@@ -24,7 +24,7 @@
       </ng-container>
       <ng-container matColumnDef="debito">
         <th mat-header-cell *matHeaderCellDef> Débito atual </th>
-        <td mat-cell *matCellDef="let cliente"> {{cliente.debito}} </td>
+        <td mat-cell *matCellDef="let cliente"> {{cliente.debito  | currency:"BRL":"symbol" }} </td>
       </ng-container>
       <ng-container matColumnDef="options">
         <th mat-header-cell *matHeaderCellDef> Opções </th>
@@ -48,16 +48,18 @@
           [routerLink]="['../compras/cliente/quit', cliente.id]">
           <mat-icon>home</mat-icon>
           </button>
-          <button mat-icon-button matTooltip="Visualizar compras em aberto do cliente"
+          <button [disabled]="!temDebito(cliente.debito)" mat-icon-button matTooltip="Visualizar compras em aberto do cliente"
           aria-label="Visualizar compras do cliente" 
           [routerLink]="['../compras/cliente/noquit', cliente.id]">
           <mat-icon>print</mat-icon>
           </button>
           <button mat-icon-button matTooltip="Realizar pagamento parcial"
-            aria-label="Realizar pagamento parcial">
+            aria-label="Realizar pagamento parcial"
+            [disabled]="!temDebito(cliente.debito)">
             <mat-icon>money</mat-icon>
           </button>
           <button mat-icon-button matTooltip="Quitar conta do cliente"
+          [disabled]="!temDebito(cliente.debito)"
             (click)="quitar($event, cliente.id, cliente.nome)" aria-label="Quitar conta do cliente">
             <mat-icon>money</mat-icon>
           </button>

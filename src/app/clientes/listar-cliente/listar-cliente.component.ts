@@ -61,6 +61,12 @@ export class ListarClienteComponent implements OnInit {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
+  temDebito(debito:number):boolean{
+    if(debito>0){
+      return true;
+    }
+    return false;
+  }
   quitar($event: any, id:string, nome:string){
     $event.preventDefault();
     this.show();

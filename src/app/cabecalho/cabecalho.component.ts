@@ -41,6 +41,9 @@ export class CabecalhoComponent implements OnInit {
   irParaListarClientes(){
     this.router.navigate(['/clientes'])
   }
+  irParaUsuarios(){
+    this.router.navigate(['/usuarios'])
+  }
 
   get title():string{
     return this.accountService.headerData.title;

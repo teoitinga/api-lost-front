@@ -34,7 +34,7 @@ export class ComprarComponent implements OnInit {
   public cliente: ClientePutModel;
   idCliente: string;
   displayedColumns: string[] = ['dsc','vlunt', 'qtd', 'desconto', 'total', 'options'];
-  dataSource: ItemModel[] = [];//new MatTableDataSource<ItemModel>();
+  dataSource: ItemModel[] = [];
   item: ItemModel;
   
   constructor(
@@ -63,7 +63,6 @@ export class ComprarComponent implements OnInit {
   }
   carregaItens() {
     this.dataSource = this.compraService.listarItens()
-    //this.dataSource = new MatTableDataSource<ItemModel>(this.compraService.listarItens());
   }
   cancelar($event: any) {
     $event.preventDefault();
@@ -73,7 +72,9 @@ export class ComprarComponent implements OnInit {
 
     }
   }
-
+  valor_total(item: ItemModel): number{
+    return (item.qtd*item.unitvalue)-item.desconto;
+  }
   private carregaDadosDoCliente() {
     let id = this.getIdCliente();
     this.serviceCliente.getCliente(id)
@@ -82,7 +83,7 @@ export class ComprarComponent implements OnInit {
           this.cliente = data;
           this.setForm();
           return data;
-        },
+        }, 
         err => {
           console.error("Erro encontrado -> " + JSON.stringify(err.message));
           let msg: string = "Ocorreu un erro: ";
@@ -128,10 +129,11 @@ export class ComprarComponent implements OnInit {
     }
     let compraActive: CompraModel = this.formCompra.value;
 
-    compraActive.vendedor = this.accountService.getActiveUserId();//"1";//this.header.getUserId();
+    compraActive.vendedor = this.accountService.getActiveUserId();
     compraActive.cliente = this.getIdCliente();
     const id: string = this.getIdCliente();
     compraActive.itens = this.compraService.listarItens();
+    console.log('Registrando compra: ' + JSON.stringify(compraActive));
     this.compraService.registrarCompra(compraActive).subscribe(
       data=>{
         console.log(JSON.stringify(data));

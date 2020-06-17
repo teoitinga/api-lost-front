@@ -1,4 +1,38 @@
 .painel{
-    height: 100%;
+    width: auto;
+}
+.container{
+    text-align: center;
+}
+.mat-list {
+    width: 40%;
+}
+    .mat-list-item{
+    margin-top: 2%;
+    margin-bottom: 1%;
+    }
+
+.mat-form-field-nome{
+    width: 80%;
+}
+.mat-form-field-apelido{
+    width: 50%;
+}
+.mat-form-field-endereco{
+    width: 50%;
+}
+.mat-form-field-fone{
+    width: 30%;
+}
+.mat-form-field-rg{
+    width: 30%;
+}
+.mat-form-field-prazo{
+    width: 10%;
+}
+.mat-list-butons{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
     
 }
