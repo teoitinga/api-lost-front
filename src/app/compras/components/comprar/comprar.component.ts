@@ -14,14 +14,7 @@ import { CompraService } from '../../services/compra.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { JsonPipe } from '@angular/common';
 import { CompraModel } from '../../models/compra.model';
-/*
-const ELEMENT_DATA: ItemModel[] = [
-  {desconto: 1, dsc: 'Cachaça', qtd: 5, vlunit: 1},
-  {desconto: 0, dsc: 'Mortadela', qtd: 5.86, vlunit: 3.5},
-  {desconto: 3, dsc: 'Pão de sal', qtd: 4.3, vlunit: 5},
-  {desconto: 2.2, dsc: 'Voodka', qtd: 8.6, vlunit: 6.25},
-];
-*/
+
 @Component({
   selector: 'app-comprar',
   templateUrl: './comprar.component.html',
@@ -137,7 +130,7 @@ export class ComprarComponent implements OnInit {
     this.compraService.registrarCompra(compraActive).subscribe(
       data=>{
         console.log(JSON.stringify(data));
-        this.router.navigate(['/clientes'])
+        this.router.navigate(['/usuarios'])
         this.compraService.removeItensDeCompraLocais();
 
         const msg: string = "Compra registrada com sucesso.";

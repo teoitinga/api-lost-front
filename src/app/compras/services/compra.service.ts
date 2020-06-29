@@ -12,7 +12,7 @@ export class CompraService {
 
   private readonly PATH: string = 'compras';
 
-
+ 
   ITEM_DATA_NAME: string = "itens";
 
   constructor(

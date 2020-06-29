@@ -9,7 +9,7 @@ import { MatSort } from '@angular/material/sort';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { Subject, Observable, Subscription } from 'rxjs';
-
+ 
 
 @Component({
   selector: 'app-listar-cliente',
@@ -21,7 +21,7 @@ export class ListarClienteComponent implements OnInit {
   clientes: ListarClienteModel[];
   displayedColumns: string[] = [ 'nome', 'apelido', 'debito', 'options' ];
   
-  spinnerVisible:boolean = false;
+  spinnerVisible:boolean = false; 
   
   dataSource = new MatTableDataSource<ListarClienteModel>();
 

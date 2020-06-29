@@ -42,7 +42,20 @@ export class CabecalhoComponent implements OnInit {
     this.router.navigate(['/clientes'])
   }
   irParaUsuarios(){
+    this.router.navigate(['/usuarios/lista'])
+  }
+  irParaListaDeVendas(){
     this.router.navigate(['/usuarios'])
+  }
+
+  irParaDashBoard(){
+    this.router.navigate(['/usuarios/dashboard'])
+  }
+  irParaPerfil(){
+    this.router.navigate(['/perfil'])
+  }
+  irParaInformacoes(){
+    this.router.navigate(['/perfil'])
   }
 
   get title():string{

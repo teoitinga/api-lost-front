@@ -1,3 +1,4 @@
+import { PerfilRoutingModule } from './perfil/perfil-routing.module';
 import { UsuarioRoutingModule } from './usuario/usuario-routing.module';
 import { ClienteService } from 'src/app/clientes';
 import { CompraModule } from './compras/compra.module';
@@ -23,7 +24,10 @@ import { InternalServerErrorComponent } from './internal-server-error/internal-s
 import { CompraComponent } from './compras/components/compra/compra.component';
 import { UsuarioModule } from './usuario/usuario.module';
 import { TreeViewModule } from '@progress/kendo-angular-treeview';
-
+import { LostDatePipe } from './shared/pipe/lost-date';
+import { CarregandoDirective } from './shared/directives/carregando.directive';
+import { CarregadoDirective } from './shared/directives/carregado.directive';
+import { PerfilModule } from './perfil/perfil.module';
 
 @NgModule({
   declarations: [
@@ -33,7 +37,9 @@ import { TreeViewModule } from '@progress/kendo-angular-treeview';
     ForbiddenComponent,
     NotfoundComponent,
     InternalServerErrorComponent,
-    CompraComponent
+    CompraComponent,
+    CarregandoDirective,
+    CarregadoDirective
   ],
   imports: [
     BrowserModule,
@@ -49,7 +55,8 @@ import { TreeViewModule } from '@progress/kendo-angular-treeview';
     CompraModule,
     UsuarioRoutingModule,
     UsuarioModule,
-    
+    PerfilRoutingModule,
+    PerfilModule,
     AppRoutingModule,
     
     TreeViewModule

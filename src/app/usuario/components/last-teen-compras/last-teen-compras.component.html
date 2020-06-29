@@ -1,1 +1,15 @@
-<p>last-teen-compras works!</p>
+<mat-accordion>
+    <mat-expansion-panel (opened)="panelOpenState = true"
+                         (closed)="panelOpenState = false" *ngFor="let compra of compras">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Data: {{compra.dataCompra | date:'dd/MM/yyyy HH:mm'}}
+        </mat-panel-title>
+        <mat-panel-description>
+          Entegue a: {{compra.recebedor}} - Valor da compra: {{compra.valorCompra | currency:'BRL'}}
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <li *ngFor="let item of compra.itens">Qtd: {{item.qtd | number:'0.2-2'}} - {{item.description}} Valor total: {{valorDoItem(item) | number:'0.2-2'}}</li>
+    </mat-expansion-panel>
+
+  </mat-accordion>

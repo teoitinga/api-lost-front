@@ -1,0 +1,26 @@
+<div *ngIf="spinnerVisible" id="spinner" class="boxspinner spinner">
+  <!--<mat-spinner></mat-spinner>-->
+  <div class="spinner carregando">
+
+  </div>
+</div>
+<div>
+  <mat-card class="lost-card">
+      <mat-card-header>
+        <mat-card-title>{{perfil.estabelecimento}}</mat-card-title>
+        <mat-card-subtitle>
+            <p>Endereço: {{perfil.endereco}} - {{perfil.cidade}}</p>
+            <p>Telefone: {{perfil.telefone}}</p>
+            <p>Proprietário: {{perfil.proprietario}}</p>
+            <p>Licença válida até: {{perfil.dataExpiracao | date: 'dd/MMM/yyyy'}}</p>
+            <p>Valor da licença: {{perfil.valorMensal | currency:'BRL':true:'1.2-2'}} por mês</p>
+            <p>Desenvolvedor: {{perfil.desenvolvedor}}</p>
+            <p>Contato: {{perfil.contatoDesenvolvedor}}</p>
+            <p>Driver de backup: {{perfil.driverBackup}}</p>
+            <p>Email: {{perfil.emailSistema}}</p>
+          </mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+      </mat-card-content>
+    </mat-card>
+</div>
