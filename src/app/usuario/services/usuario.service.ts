@@ -12,6 +12,7 @@ export class UsuarioService {
   
   private readonly PATH: string = 'compras/teen';
   private readonly PATH_PAINEL: string = 'perfil/painel';
+  private readonly PATH_FLUXO_DE_VENDAS: string = 'perfil/fluxoMensalVendas';
   
   constructor(
     private http: HttpClient,
@@ -22,6 +23,9 @@ export class UsuarioService {
 
   getTeenLastCompras(): Observable<any> {
     return this.http.get(env.baseApiUrl + this.PATH);
+  }
+  getFluxoDeVendas(): Observable<any> {
+    return this.http.get(env.baseApiUrl + this.PATH_FLUXO_DE_VENDAS);
   }
   getPainel():Observable<any>{
     return this.http.get(env.baseApiUrl + this.PATH_PAINEL);

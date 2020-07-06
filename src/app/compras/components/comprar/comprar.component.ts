@@ -28,8 +28,14 @@ export class ComprarComponent implements OnInit {
   idCliente: string;
   displayedColumns: string[] = ['dsc','vlunt', 'qtd', 'desconto', 'total', 'options'];
   dataSource: ItemModel[] = [];
-  item: ItemModel;
-  
+  item: ItemModel = {
+    description: '',
+    desconto: 0,
+    qtd: 1,
+    unitvalue: 0
+  };
+  valorDoItem: number = 0;
+  valorDaCompra: number = 0;
   constructor(
     
     private serviceCliente: ClienteService,
@@ -56,6 +62,7 @@ export class ComprarComponent implements OnInit {
   }
   carregaItens() {
     this.dataSource = this.compraService.listarItens()
+    this.somaCompra();
   }
   cancelar($event: any) {
     $event.preventDefault();
@@ -67,6 +74,17 @@ export class ComprarComponent implements OnInit {
   }
   valor_total(item: ItemModel): number{
     return (item.qtd*item.unitvalue)-item.desconto;
+  }
+  somaCompra(){
+      this.valorDaCompra = this.dataSource.map(item=>this.valor_total(item)).reduce(function(acumulador, atual){
+        console.log(acumulador, atual);
+        return acumulador + atual;
+      }, 0);
+  }
+
+  somaItem(){
+    this.item = this.formItem.value;
+    this.valorDoItem = this.valor_total(this.item);
   }
   private carregaDadosDoCliente() {
     let id = this.getIdCliente();
@@ -94,7 +112,7 @@ export class ComprarComponent implements OnInit {
   private geraForm() {
     this.formCompra = this.fb.group({
       dataCompra: ['', [Validators.required]],
-      recebebida: ['', [Validators.required, Validators.minLength(10)]]
+      recebebida: ['', [Validators.required]]
     })
     this.carregaDadosDoCliente();
     this.geraFormItem();
@@ -114,6 +132,7 @@ export class ComprarComponent implements OnInit {
       qtd: ['1', [Validators.required]],
       desconto: ['0', [Validators.required]],
     });
+    this.valorDoItem = 0
   }
   public comprar() {
 
@@ -156,8 +175,8 @@ export class ComprarComponent implements OnInit {
 
     if(confirm('Deseja remover o item "' + (item.description) + '"?')){
       this.compraService.removerItem(item);
-    }
 
+    }
     this.carregaItens();
   }
 

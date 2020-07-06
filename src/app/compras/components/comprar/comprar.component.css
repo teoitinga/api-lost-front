@@ -1,65 +1,132 @@
+div{
+    margin: 5px;
+    box-sizing: border-box;
+}
+.container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    height: 70%;
+    box-sizing: border-box;
+    margin: 5px;
+}
+.container-itens-table{
+ width: 60%;
+ padding: 0px;
+ margin: 0px;
+ background-color: #109aee30;
+ 
+}
+table{
+    margin: 0px;
+    width: 100%;
+    padding: 0px;
+}
+.table-header{
+font-size: 1.5em;
+margin-bottom: 15px;
+height: 1em;
+
+align-content: center;
+}
+.container-data{
+ width: 35%;
+}
+.header-compra{
+    display: flex;
+    flex-flow: row wrap;
+    align-content: flex-start;
+}
+.body-items{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
+.fields{
+    font-weight: bold;
+}
+.panel-valor-compra{
+    width: 100%;
+    padding-left: 20px;
+    padding-top: 10px;
+    padding-bottom: 30px;
+    font-weight: bold;
+    align-content: center;
+    font-size: 3em;
+}
+
+/* Dados dos itens */
+.valor-item{
+    width: 25%;
+}
+.qtd-item{
+    width: 25%;
+}
+.desconto-item{
+    width: 25%;
+}
+.valor-total-item{
+    width: 20;
+}
 .barra-superior{
     display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
     flex-direction: row;
-    height: 3rem;
-    margin-top: 20px;
-    margin-left: 20px;
-    margin-right: 20px;
-}
-.form-field-data-compra{
-    width: 10rem;
-}
-.form-field-entregue-a{
-    width: 20rem;
-}
-.form-field-description{
-    width: 20rem;
-}
-.form-field-unitvalue{
-    width: 6rem;
-}
-.form-field-qtd{
-    width: 6rem;
-}
-.form-field-desconto{
-    width: 6rem;
-}
-.painel-valores{
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    align-items: flex-end;
-    margin-top: 20px;
-    margin-left: 20px;
-    margin-right: 20px;
-}
-.painel-itens-data{
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    flex-direction: row;
-}
-.table-itens{
-    width: 100%;
-}
-/* linha 02 da viewm */
-.painel-body{
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    flex-direction: row;
-}
-.form-compra-data{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
 }
 .panel-button{
+    display: flex;
+    width: 30%;
+    flex-direction: row;
+    justify-content: space-around;
+}
+button{
+    width: 80px;
+    padding: 5px;
+}
+
+mat-form-field{
+    width: 90%;
+    padding-left: 5px;
+}
+
+.form-field-entregue-a{
+    width: 100%;
+}
+.form-field-data-compra{
+    width: 80%;
+}
+.form-field-qtd{
 
 }
-.space-button{
-    margin-left: 50px;
+.form-field-desconto{
+
+
+}
+.form-field-unitvalue{
+
+}
+.form-field-description{
+    width: 60%;
+}
+/* layout da tabela */
+.mat-column-descricao{
+    width: 40%;
+    text-align: left;
+    
+}
+.mat-column-vlunt{
+    text-align: center;
+}
+.mat-column-qtd{
+    text-align: center;
+}
+.mat-column-desconto{
+    text-align: center;
+}
+.mat-column-total{
+    text-align: right;
+}
+.mat-column-options{
+    vertical-align: text-bottom;
+    text-align: left;
+    
 }
