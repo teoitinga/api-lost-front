@@ -12,7 +12,7 @@
     </mat-form-field>
     <mat-icon inline=true>search</mat-icon>
   </div>
-  <div class="table-clientes" Carregando>
+  <div *ngIf="!spinnerVisible" class="table-clientes" Carregando>
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
       <!--- Note that these columns can be defined in any order.
                 The actual rendered columns are set as a property on the row definition" -->

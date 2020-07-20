@@ -11,6 +11,9 @@ import { QuitadasComprasComponent } from './components/quitadas-compras/quitadas
 import { DebitoComprasComponent } from './components/debito-compras/debito-compras.component';
 import { LostDatePipe } from '../shared/pipe/lost-date';
 
+import { SharedModule } from '../shared/shared.module';
+
+
 
 @NgModule({
   declarations: [
@@ -18,7 +21,8 @@ import { LostDatePipe } from '../shared/pipe/lost-date';
     TodasComprasComponent,
     QuitadasComprasComponent,
     DebitoComprasComponent,
-    LostDatePipe
+    LostDatePipe,
+    SharedModule
   ],
   imports: [
     CommonModule,

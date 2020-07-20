@@ -29,6 +29,7 @@ import { CarregandoDirective } from './shared/directives/carregando.directive';
 import { CarregadoDirective } from './shared/directives/carregado.directive';
 import { PerfilModule } from './perfil/perfil.module';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,7 +40,8 @@ import { PerfilModule } from './perfil/perfil.module';
     InternalServerErrorComponent,
     CompraComponent,
     CarregandoDirective,
-    CarregadoDirective
+    CarregadoDirective,
+    
   ],
   imports: [
     BrowserModule,
