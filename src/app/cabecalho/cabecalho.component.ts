@@ -45,7 +45,7 @@ export class CabecalhoComponent implements OnInit {
     this.router.navigate(['/usuarios/lista'])
   }
   irParaListaDeVendas(){
-    this.router.navigate(['/usuarios'])
+    this.router.navigate(['/usuarios/lista'])
   }
 
   irParaDashBoard(){

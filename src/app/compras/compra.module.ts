@@ -13,8 +13,6 @@ import { LostDatePipe } from '../shared/pipe/lost-date';
 
 import { SharedModule } from '../shared/shared.module';
 
-
-
 @NgModule({
   declarations: [
     ComprarComponent,
@@ -22,18 +20,19 @@ import { SharedModule } from '../shared/shared.module';
     QuitadasComprasComponent,
     DebitoComprasComponent,
     LostDatePipe,
-    SharedModule
   ],
   imports: [
     CommonModule,
     MaterialModule,
     ReactiveFormsModule,
     FlexLayoutModule,
-
-    CompraRoutingModule
+    SharedModule,
+    CompraRoutingModule,
+    
   ],
   providers: [
-    CompraService
+    CompraService,
+    
   ]
 })
 export class CompraModule { }

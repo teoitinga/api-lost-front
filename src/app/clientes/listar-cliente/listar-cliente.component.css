@@ -50,3 +50,9 @@
   #formulario.mostrar {
     opacity: 1;
   }
+  .options{
+    width: 320px;
+  }
+  .debito{
+    width: 120px;
+  }

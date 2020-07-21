@@ -28,6 +28,11 @@ export class UsuarioService {
     return this.http.get(env.baseApiUrl + this.PATH_FLUXO_DE_VENDAS);
   }
   getPainel():Observable<any>{
-    return this.http.get(env.baseApiUrl + this.PATH_PAINEL);
+    let id = this.accountService.getActiveUserId();
+    console.log("Buscando id: " + id);
+    //return this.http.get(env.baseApiUrl + this.PATH_PAINEL+ '/' + id);
+    return this.http.get(`${env.baseApiUrl}${this.PATH_PAINEL}/${id}`);
+    
+    //`${env.baseApiUrl}${this.PATH_PUT}/${id}`
   }
 }

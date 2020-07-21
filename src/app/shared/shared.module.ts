@@ -1,18 +1,18 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { modulNumbersDirective } from './directives/numbers.directive';
+import { NumbersDirective } from './directives/numbers.directive';
 
 
 
 @NgModule({
   declarations: [
-    modulNumbersDirective
+    NumbersDirective
   ],
   imports: [
     CommonModule
   ],
   exports:[
-    modulNumbersDirective
+    NumbersDirective
   ]
 })
 export class SharedModule { }

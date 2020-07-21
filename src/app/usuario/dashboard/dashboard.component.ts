@@ -41,53 +41,10 @@ export class DashboardComponent implements OnInit {
         .subscribe(
         dados=>{
           this.dados = dados;
-          this.init();
         }
       );
     }
-    init(): void{
-      if(typeof(google) !=='undefined'){
-        //google.charts.load('current', {'packages': ['corechart']});
-        google.charts.load('current', {packages: ['corechart']});
-        setTimeout(()=>{
-          //google.charts.setOnLoadCallback(this.exibirGraficos());
-          google.charts.setOnLoadCallback(this.exibirGraficos());
-        }, 1000);
-      }
-    }
-    exibirGraficos(){
-      this.exibirPieChart();
-    }
-    exibirPieChart(){
-      const el = document.getElementById('pie_chart');
-      //const chart = new google.visualization.PieChart(el);
-      var data = new google.visualization.DataTable();
-      data.addColumn('string', 'Element');
-      data.addColumn('number', 'Percentage');
-      data.addRows([
-        ['Nitrogen', 0.78],
-        ['Oxygen', 0.21],
-        ['Other', 0.01]
-      ]);
-      //chart.draw(this.obterDataTable(), this.obterOpcoes());
-      // Instantiate and draw the chart.
-      const chart = new google.visualization.PieChart(document.getElementById('pie_chart'));
-      chart.draw(data, null);
-    }
-    obterDataTable():any{
-      const data = new google.vizualization.DataTable();
-      data.addColumn('string', 'Mês');
-      data.addColumn('number', 'Quantidade');
-      data.addRows(this.dados);
-      return data;
-    }
-    obterOpcoes(): any{
-      return {
-        'title': 'Quantidade de cadastros no primeiro semestre',
-        'width': 400,
-        'heigth': 300
-      }
-    }
+
     show() {
       this.spinnerVisible = true;
     }

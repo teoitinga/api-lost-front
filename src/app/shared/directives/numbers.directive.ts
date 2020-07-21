@@ -3,7 +3,7 @@ import { Directive, ElementRef, Input, HostListener } from '@angular/core';
 @Directive({
   selector: '[numberOnly]'
 })
-export class modulNumbersDirective {
+export class NumbersDirective {
 
 
   @Input() allowDecimals: boolean = true;

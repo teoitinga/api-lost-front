@@ -47,25 +47,20 @@
                         <!-- Painel dados item -->
                         <div class="valor-item">
                             <mat-form-field class="form-field-unitvalue">
-                                <input (change)="somaItem()" matInput placeholder="Valor unitário" formControlName="unitvalue" NumbersOnly
-                                [allowDecimals]="true"
-                                [allowSign]="true"
+                                <input numberOnly (change)="somaItem()" matInput 
+                                placeholder="Valor unitário" 
+                                formControlName="unitvalue" 
                                 type="text">
                             </mat-form-field>
                         </div>
                         <div class="qtd-item">
                             <mat-form-field class="form-field-qtd">
-                                <input (change)="somaItem()" matInput placeholder="Quantidade" formControlName="qtd" NumbersOnly
-                                [allowDecimals]="true"
-                                [allowSign]="true"
-                                type="text">
+                                <input numberOnly (change)="somaItem()" matInput placeholder="Quantidade" formControlName="qtd" type="text">
                             </mat-form-field>
                         </div>
                         <div class="desconto-item">
                             <mat-form-field class="form-field-desconto">
-                                <input (change)="somaItem()" matInput placeholder="Desconto" formControlName="desconto" NumbersOnly
-                                [allowDecimals]="true"
-                                [allowSign]="true"
+                                <input numberOnly (change)="somaItem()" matInput placeholder="Desconto" formControlName="desconto"
                                 type="text">
                             </mat-form-field>
                         </div>
